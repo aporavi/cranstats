@@ -1,0 +1,29 @@
+$def with (nodes)
+<html>
+<head>
+<title>Node Management</title>
+</head>
+<body>
+<h1>Register a Node</h1>
+<form method="POST" action="/manage">
+	Mirror URL: <input type="text" name="url"><br />
+	<input type="submit">
+</form>
+
+<h1>Existing Nodes</h1>
+<table width="100%">
+	<tr style="background-color:#ccc;">
+		<td style="padding:10px;">ID</td>
+		<td style="padding:10px;">Key</td>
+		<td style="padding:10px;">Mirror URL</td>
+		<td style="padding:10px;">Last Sync Date</td>
+		<td style="padding:10px;">No. Entries Synced</td>
+	</tr>
+$for node in nodes:
+	<tr>
+		$for item in node:
+			<td style="padding:10px;">$item</td>
+	</tr>
+</table>
+</body>
+</html>

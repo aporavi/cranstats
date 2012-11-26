@@ -1,0 +1,14 @@
+is.R("cbind()")
+is.R()
+help(is.R)
+library("proxy")
+install.packages("proxy")
+library("proxy")
+pr_db
+pr_DB
+pr_DB$get_fields()
+pr_DB$get_field_names()
+pr_DB$get_entry_names()
+sort(pr_DB$get_entry_names())
+data <- read.csv("~/Dropbox/Laptop-Desktop/echochamber/all_data/all_topics_random.csv")
+nrow(data)

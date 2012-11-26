@@ -1,0 +1,133 @@
+$def with (packages)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>cranstats - List of Packages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/static/css/analytics.css" rel="stylesheet" />
+  </head>
+
+  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="50">
+    <div class="container">
+<!-- Navbar
+================================================== -->
+<section id="navbar">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">cranstats</a>
+        <div class="nav-collapse">
+          <ul class="nav pull-right">
+            <li><a href="/">Overview</a></li>
+            <li><a href="/packages">Packages</a></li>
+            <!--<li><a href="/about">About</a></li>
+            
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rankings <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Most Downloads</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+            -->
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
+
+</section>
+
+<!-- Typography
+================================================== -->
+<section id="typography">
+  <!-- Headings & Paragraph Copy -->
+  <div class="row">
+
+    <div class="span3">
+      <div class="well sidebar-nav">
+      	<h2>List of Packages</h2>
+		Provided is a list of packages that are tracked by cranstats. Note that not all packages available on the CRAN repository are tracked, only those that have received at least one download since cranstats began operating.
+      </div>
+    </div>
+
+    <div class="span9">  
+        <div class="well" id="packages">
+			<div id="packages_container">
+				<table cellpadding="0" cellspacing="0" border="0" class="bordered-table zebra-striped" style="width:100%" id="rawData">
+					<thead>
+						<tr>
+							<th>Package</th>
+						</tr>
+					</thead>
+					<tbody>
+						$for package in packages:
+							<tr><td><a href="/package/$package[0]">$package[0]</a></td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="span9 offset3">  
+        <div class="well" id="packages">
+        	<h2>About the Project</h2>
+			CRANstats was written as part of Google Summer of Code 2012 by <a href="http://www.timjurka.com/" target="_blank">Tim Jurka</a> and <a href="http://had.co.nz" target="_blank">Hadley Wickham</a>. The goal of this project is to collect package download data from CRAN mirrors in a central location. CRANstats is hosted on <a href="http://www.heroku.com/" target="_blank">Heroku</a> and <a href="http://aws.amazon.com" target="_blank">Amazon S3</a>. The web application was written in <a href="http://www.python.org/" target="_blank">Python</a> using the <a href="http://www.webpy.org/" target="_blank">web.py</a> web framework. The interface was constructed using <a href="http://twitter.github.com/bootstrap/">Twitter Boostrap</a>, <a href="http://www.jquery.com/" target="_blank">jQuery</a>, and <a href="https://code.google.com/p/flot/" target="_blank">flot</a>. The data is stored in a <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> database and results are cached using <a href="http://www.memcached.org/" target="_blank">memcached</a>.
+		</div>
+	</div>
+
+  </div>
+
+</section>
+
+ <!-- Footer
+  ================================================== -->
+  <footer class="footer">
+	<p class="pull-right"><a href="#">Back to top</a></p>
+  </footer>
+
+</div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="/static/js/jquery-ui-1.8.16.custom.min.js"></script>
+	
+    <script src="/static/js/bootstrap.min.js"></script>
+
+	<script src="/static/js/jquery.dataTables.js"></script>
+	<script src="/static/js/datatables.mod.js"></script>
+
+	<script src="/static/js/packages.js"></script>
+
+  </body>
+</html>

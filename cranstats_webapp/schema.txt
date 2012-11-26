@@ -1,0 +1,18 @@
+CREATE TABLE downloads (
+     id         SERIAL,
+     node       smallint,
+     date       timestamp,
+     rversion   text,
+     rarch      text,
+     ros        text,
+     package    text,
+     pversion   text
+);
+
+CREATE TABLE nodes (
+     id         SERIAL,
+     key        text,
+     url        text,
+     sync       timestamp,
+     entries    integer
+);

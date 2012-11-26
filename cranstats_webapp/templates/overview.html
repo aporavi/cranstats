@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>cranstats - CRAN Overview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/static/css/analytics.css" rel="stylesheet" />
+    <link href="/static/css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+    <link href="/static/css/ui.daterangepicker.css" rel="Stylesheet" />
+    <!--<link href="/static/css/TableTools.css" rel="Stylesheet" />-->
+  </head>
+
+  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="50">
+    <div class="container">
+<!-- Navbar
+================================================== -->
+<section id="navbar">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">cranstats</a>
+        <div class="nav-collapse">
+          <ul class="nav pull-right">
+            <li><a href="/">Overview</a></li>
+            <li><a href="/packages">Packages</a></li>
+            <!--<li><a href="/about">About</a></li>
+            
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rankings <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Most Downloads</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+            -->
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
+
+</section>
+
+<!-- Typography
+================================================== -->
+<section id="typography">
+  <!-- Headings & Paragraph Copy -->
+  <div class="row">
+
+    <div class="span3">
+      <div class="well sidebar-nav">
+      	<h2>CRAN Overview</h2>
+		<ul class="nav nav-list">
+		  <li class="nav-header" style="font-weight:bold">Overview</li>
+		  <li id="nav1" class="analyticsNav"><a href="javascript: void(0)" onclick="display('#ts_container')">Downloads</a></li>
+		  <!--<li class="analyticsNav"><a href="javascript: void(0)" onclick="display('#raw_container')">Raw Data</a></li>-->
+		  <li class="nav-header" style="font-weight:bold">User Analytics</li>
+		  <li class="analyticsNav"><a href="javascript: void(0)" onclick="display('#rversion_container')">R Version</a></li>
+		  <li class="analyticsNav"><a href="javascript: void(0)" onclick="display('#os_container')">Operating System</a></li>
+		  <li class="analyticsNav"><a href="javascript: void(0)" onclick="display('#arch_container')">Architecture</a></li>
+		</ul>
+      </div>
+      
+      <div class="well">
+      	<ul class="nav nav-list">
+      		<li class="nav-header" style="font-weight:bold">Date Range</li>
+			<li><div class="input-append">
+				<input class="span2" type="text" id="rangeA" id="appendedInputButton" style="font-weight:bold"><button class="btn dropdown-toggle" id="calendar" type="button"><span class="caret"></span></button>
+			</div></li>
+		</ul>
+      </div>
+    </div>
+
+    <div class="span9">  
+        <div class="well" id="graph_container">
+        	<h2 id="results" style="text-align:center"></h2>
+        	<div id="loading_container" class="graphs" style="text-align:center;height:325px;">
+        		<br /><br /><br /><br /><br /><br /><br />
+				<div id="loader" style="width:100%;"></div><br /><br /><br />
+        		<h2>Please wait while cranstats generates the visualizations.</h2>        	
+        	</div>
+        	<div id="error_container" class="graphs" style="text-align:center;height:325px;">
+        		<br /><br /><br /><br />
+        		<img src="/static/img/alert.png" alt="No data for date range specified."/><br />
+        		<h2>No data available for the specified date range.</h2>
+        	</div>
+        
+			<div id="ts_container" class="graphs">
+				<div id="time-series" style="width:auto;height:400px"></div><br />
+				<div style="font-size:14px;text-align:center;">Click and drag to zoom in on a specified time period.</div><br />
+				<div id="overview" style="width:auto;height:50px;margin-left:20px;"></div>
+			</div>
+			<div id="raw_container" class="graphs">
+				<table cellpadding="0" cellspacing="0" border="0" class="bordered-table zebra-striped" style="width:100%" id="rawData">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>OS</th>
+							<th>Architecture</th>
+							<th>R Version</th>
+							<th>Package Version</th>
+							<th>Package</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div id="os_container" class="graphs">
+				<div id="operating-system" style="width:auto;height:400px;"></div>
+			</div>
+			<div id="arch_container" class="graphs">
+				<div id="architecture" style="width:auto;height:400px;"></div>
+			</div>
+			<div id="rversion_container" class="graphs">
+				<div id="r-version" style="width:auto;height:400px;"></div>
+			</div>
+		</div>
+	</div>
+
+  </div>
+  
+  <div class="row">
+
+    <div class="span9 offset3">  
+        <div class="well" id="packages">
+        	<h2>About the Project</h2>
+			CRANstats was written as part of Google Summer of Code 2012 by <a href="http://www.timjurka.com/" target="_blank">Tim Jurka</a> and <a href="http://had.co.nz" target="_blank">Hadley Wickham</a>. The goal of this project is to collect package download data from CRAN mirrors in a central location. CRANstats is hosted on <a href="http://www.heroku.com/" target="_blank">Heroku</a> and <a href="http://aws.amazon.com" target="_blank">Amazon S3</a>. The web application was written in <a href="http://www.python.org/" target="_blank">Python</a> using the <a href="http://www.webpy.org/" target="_blank">web.py</a> web framework. The interface was constructed using <a href="http://twitter.github.com/bootstrap/">Twitter Boostrap</a>, <a href="http://www.jquery.com/" target="_blank">jQuery</a>, and <a href="https://code.google.com/p/flot/" target="_blank">flot</a>. The data is stored in a <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a> database and results are cached using <a href="http://www.memcached.org/" target="_blank">memcached</a>.
+		</div>
+	</div>
+
+  </div>
+
+</section>
+
+ <!-- Footer
+  ================================================== -->
+  <footer class="footer">
+	<p class="pull-right"><a href="#">Back to top</a></p>
+  </footer>
+
+</div><!-- /container -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="/static/js/jquery-ui-1.8.16.custom.min.js"></script>
+	
+    <script src="/static/js/bootstrap.min.js"></script>
+	
+    <script src="/static/js/date.js"></script>
+    <script src="/static/js/daterangepicker.jQuery.js"></script>
+    
+	<script src="/static/js/flot/jquery.flot.min.js"></script>
+	<script src="/static/js/flot/plugins/jquery.flot.selection.min.js"></script>
+
+	<script src="/static/js/spin.min.js"></script>
+	
+	<script src="/static/js/base.js"></script>
+	<script src="/static/js/overview.js"></script>
+
+    <!--[if lte IE 8]><script src="/static/js/flot/excanvas.min.js"></script><![endif]-->
+
+  </body>
+</html>
