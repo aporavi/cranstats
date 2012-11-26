@@ -1,0 +1,5 @@
+CRANstats was written as part of Google Summer of Code 2012 in collaboration with Hadley Wickham. The goal of this project is to collect package download data from CRAN mirrors in a central location. CRANstats is hosted on Heroku and Amazon S3. The web application was written in Python using the web.py web framework. The interface was constructed using Twitter Boostrap, jQuery, and flot. The data is stored in a PostgreSQL database and results are cached using memcached.
+
+Although the project was successfully completed, there are currently no CRAN mirrors supplying data through the service. However, the databases have been populated with sample data that can be viewed by selecting the "year to date" date range.
+
+For installation instructions, see the LaTeX manual in cranstats_docs.
